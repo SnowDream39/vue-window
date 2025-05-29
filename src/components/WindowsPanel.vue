@@ -20,7 +20,8 @@
     </div>
   </aside>
 
-  <Window v-for="([key, options], index) in Object.entries(windowsStore.windows)" :key="key" :windowKey="key">
+  <Window v-for="([key, options], index) in Object.entries(windowsStore.windows)" :key="key" :windowKey="key"
+    class="z-100">
     <component :is="options.content" />
   </Window>
 </template>

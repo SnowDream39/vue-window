@@ -43,7 +43,7 @@ module.exports = {
 
 5. 在 App.vue （或任何你希望的地方）加入 `<WindowsPanel :icons="icons" />`，其中 `icons` 是一个 `WindowSystemOptions` 对象，包含的是“应用”（可打开的窗口）的信息。
 
-# 类型定义
+## 类型定义
 
 ```ts
 export interface WindowOptions {
@@ -71,3 +71,7 @@ export interface WindowSystemOptions {
   [key: string]: IconOptions
 }
 ```
+
+## 说明
+
+1. 为了保证窗口显示在上层，窗口组件的 z-index 值被设置为 100。
