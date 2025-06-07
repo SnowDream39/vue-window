@@ -1,5 +1,5 @@
 @import './base.css';
-@import 'tailwindcss';
+@import 'virtual:uno.css';
 
 @layer base {
   body {

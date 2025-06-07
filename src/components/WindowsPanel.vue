@@ -15,7 +15,7 @@
       <WindowCreators v-show="!collapsed" />
     </div>
     <!-- <MinimizedWindows v-show="!collapsed" /> -->
-    <div bottom class="w-full" v-show="!collapsed">
+    <div class="w-full" v-show="!collapsed">
       <Copyright />
     </div>
   </aside>
@@ -39,7 +39,7 @@ import { watch } from 'vue';
 // ======================== 传入窗口 =======================
 
 const windowsStore = useWindowsStore()
-const props = defineProps<{ icons: WindowSystemOptions }>()
+const props = defineProps<{ icons?: WindowSystemOptions }>()
 
 console.log('[组件库] props keys:', Object.keys(props))
 console.log('[组件库] props:', props)
@@ -49,7 +49,11 @@ watch(
   () => props,
   (newProps) => {
     console.log('[组件库] props changed:', newProps)
-    windowsStore.icons = newProps.icons
+    if (!newProps.icons) {
+      windowsStore.icons = {}
+    } else {
+      windowsStore.icons = newProps.icons
+    }
   },
   { immediate: true, deep: true }
 )
